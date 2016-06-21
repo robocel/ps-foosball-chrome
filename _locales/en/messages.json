@@ -1,0 +1,16 @@
+{
+    "ps_foosball_name": {
+        "message": "PointSource Foosball Tracker"
+    },
+    "ps_foosball_description": {
+        "message": "Foosball Tracker Extension for PointSource."
+    },
+    "ps_foosball_exception": {
+        "message": "exception: $1",
+        "placeholders": {
+            "1": {
+                "content": "$1"
+            }
+        }
+    }
+}
