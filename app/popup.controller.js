@@ -12,6 +12,8 @@
         vm.activeGame = {};
         vm.todaysGames = [];
 
+        vm.toggleGame = toggleGame;
+
         init();
 
         function init() {
@@ -26,6 +28,18 @@
                     vm.todaysGames = games;
                 }
             )
+        }
+
+        function toggleGame(game) {
+            if (!game.toggled && !game.scores) {
+                GameService.getScoresForGame(game.id, game.startTime).then(
+                    function (scores) {
+                        game.scores = scores;
+                    }
+                )
+            }
+
+            game.toggled = !game.toggled;
         }
     }
 })();
