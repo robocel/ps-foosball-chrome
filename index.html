@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="app" ng-csp>
+    <head>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+    </head>
+    <body>
+        <div ui-view="header"></div>
+        <div ui-view="content"></div>
+
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="bower_components/lodash/dist/lodash.min.js"></script>
+        <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="app/app.js"></script>
+        <script type="text/javascript" src="app/app.route.js"></script>
+        <script type="text/javascript" src="app/services/game.service.js"></script>
+        <script type="text/javascript" src="app/services/matchup.service.js"></script>
+        <script type="text/javascript" src="app/header.controller.js"></script>
+        <script type="text/javascript" src="app/scoreboard.controller.js"></script>
+    </body>
+</html>

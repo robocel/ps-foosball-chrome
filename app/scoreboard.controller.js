@@ -2,11 +2,11 @@
     'use strict';
 
     angular.module('app')
-        .controller('PopupController', PopupController);
+        .controller('ScoreboardController', ScoreboardController);
 
-    PopupController.$inject = ['GameService'];
+    ScoreboardController.$inject = ['GameService'];
 
-    function PopupController(GameService) {
+    function ScoreboardController(GameService) {
         var vm = this;
 
         vm.activeGame = {};

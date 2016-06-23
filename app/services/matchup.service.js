@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('app').facory('MatchupService', MatchupService);
+    angular.module('app').factory('MatchupService', MatchupService);
 
     MatchupService.$inject = ['$http'];
 
