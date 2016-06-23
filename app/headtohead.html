@@ -1,0 +1,20 @@
+<select ng-model='vm.player0' ng-options='player as player.name for player in vm.players' ng-change='vm.onPlayerChange()'></select>
+<select ng-model='vm.player1' ng-options='player as player.name for player in vm.players' ng-change='vm.onPlayerChange()'></select>
+<div>
+    Player 0
+    <ul>
+        <li>ID: {{vm.player0.id}}</li>
+        <li>Name: {{vm.player0.name}}</li>
+        <li>Head-To-Head Wins: {{vm.matchupData.team0Wins}}</li>
+        <li>Head-To-Head Goals: {{vm.matchupData.team0Goals}}</li>
+    </ul>
+</div>
+<div>
+    Player 1
+    <ul>
+        <li>ID: {{vm.player1.id}}</li>
+        <li>Name: {{vm.player1.name}}</li>
+        <li>Head-To-Head Wins: {{vm.matchupData.team1Wins}}</li>
+        <li>Head-To-Head Goals: {{vm.matchupData.team1Goals}}</li>
+    </ul>
+</div>

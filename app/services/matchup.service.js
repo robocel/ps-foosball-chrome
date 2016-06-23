@@ -8,6 +8,7 @@
     function MatchupService($http) {
 
         var URL_GET_GAMES = 'https://ps-foosball.mybluemix.net/api/Games?filter=';
+        var API_KEY = 't0ddsucks';
 
         return {
             getMatchupRecord: getMatchupRecord
@@ -15,10 +16,11 @@
 
         function getMatchupRecord(team0Id, team1Id) {
             var url = URL_GET_GAMES + buildQueryString(team0Id, team1Id);
+            console.log(url);
             var httpConfig = getHttpConfig(url);
             return $http(httpConfig).then(
                 function (response) {
-                    parseMatchup(response.data, team0Id, team1Id);
+                    return parseMatchup(response.data, team0Id, team1Id);
                 },
                 function (err) {
                     return [];
@@ -95,12 +97,12 @@
                         {
                             or: [
                                 {status: 'force-complete'},
-                                {status: 'complete'}
+                                {status: 'complete'},
+                                {status: 'force-completed'}
                             ]
                         }
                     ]
-                },
-                include: ['team0', 'team1']
+                }
             };
 
             return JSON.stringify(query);

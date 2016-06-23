@@ -28,6 +28,17 @@
                         controllerAs: 'vm'
                     }
                 }
+            })
+            .state('headtohead', {
+                parent: 'app',
+                url: '/headtohead',
+                views: {
+                    'content@': {
+                        templateUrl: 'app/headtohead.html',
+                        controller: 'HeadToHeadController',
+                        controllerAs: 'vm'
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/scores');
