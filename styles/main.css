@@ -1,5 +1,6 @@
 html {
     width: 400px;
+    padding: 10px 10px 0 10px;
 }
 
 .winner {
@@ -8,4 +9,8 @@ html {
 
 .api-warning {
     padding: 15px;
+}
+
+.header {
+    margin-bottom: 15px;
 }
