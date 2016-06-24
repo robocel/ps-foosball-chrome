@@ -7,7 +7,7 @@
 
     function PlayerService($http) {
 
-        var URL_GET_PLAYERS = 'https://ps-foosball.mybluemix.net/api/Teams?filter[where][type]=singles&filter[where][rank][gte]=1&filter[order]=rank%20ASC';
+        var URL_GET_PLAYERS = 'https://ps-foosball.mybluemix.net/api/Teams?filter[where][type]=singles&filter[where][rank][gte]=1&filter[include]=player0&filter[order]=rank%20ASC';
         var API_KEY = 't0ddsucks';
 
         return {
@@ -31,7 +31,11 @@
                 var playerToParse = players[i];
                 var parsedPlayer = {
                     id: playerToParse.id,
-                    name: playerToParse.name
+                    // Singles team names can be different than
+                    // player names in weird situations.
+                    name: playerToParse.player0.name,
+                    rank: playerToParse.rank,
+                    elo: playerToParse.eloRating
                 };
                 parsedPlayers.push(parsedPlayer);
             }

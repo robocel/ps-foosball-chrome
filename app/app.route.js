@@ -39,6 +39,17 @@
                         controllerAs: 'vm'
                     }
                 }
+            })
+            .state('leaderboard', {
+                parent: 'app',
+                url: '/leaderboard',
+                views: {
+                    'content@': {
+                        templateUrl: 'app/leaderboard.html',
+                        controller: 'LeaderboardController',
+                        controllerAs: 'vm'
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/scores');
