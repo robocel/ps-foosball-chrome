@@ -48,13 +48,10 @@
                     continue;
                 }
 
-                var newIndex = i;
                 if (cachedGames.length >= CACHED_GAME_COUNT) {
                     cachedGames = _.tail(cachedGames);
-                    newIndex = CACHED_GAME_COUNT - 1;
                 }
-
-                cachedGames[newIndex] = game;
+                cachedGames[cachedGames.length] = game;
 
                 if (game.team0Id === team0Id) {
                     if (game.team0Score > game.team1Score) {
@@ -75,6 +72,8 @@
                 }
             }
 
+            console.log(JSON.stringify(cachedGames, 0, 2));
+            console.log(JSON.stringify(games, 0, 2));
             return {
                 team0Wins: team0Wins,
                 team0Goals: team0Goals,
