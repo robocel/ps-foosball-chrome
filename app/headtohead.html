@@ -3,7 +3,7 @@
 <div>
     Player 0
     <ul>
-        <li>ID: {{vm.player0.id}}</li>
+        <!--<li>ID: {{vm.player0.id}}</li>-->
         <li>Name: {{vm.player0.name}}</li>
         <li>Head-To-Head Wins: {{vm.matchupData.team0Wins}}</li>
         <li>Head-To-Head Goals: {{vm.matchupData.team0Goals}}</li>
@@ -12,9 +12,29 @@
 <div>
     Player 1
     <ul>
-        <li>ID: {{vm.player1.id}}</li>
+        <!--<li>ID: {{vm.player1.id}}</li>-->
         <li>Name: {{vm.player1.name}}</li>
         <li>Head-To-Head Wins: {{vm.matchupData.team1Wins}}</li>
         <li>Head-To-Head Goals: {{vm.matchupData.team1Goals}}</li>
+    </ul>
+</div>
+<div>
+    Recent Games
+    <ul>
+        <li ng-repeat="oldGame in vm.matchupData.games" ng-click="vm.toggleGame(oldGame)">
+            <span ng-class="{winner:oldGame.team0Score>oldGame.team1Score}">{{oldGame.team0.name}} ({{oldGame.team0Score}})</span> :
+            <span ng-class="{winner:oldGame.team1Score>oldGame.team0Score}">({{oldGame.team1Score}}) {{oldGame.team1.name}}</span> ({{oldGame.startTime | date}})
+            <table class="table" ng-if="oldGame.toggled">
+                <tr><td>BLUE</td><td>TIME</td><td>RED</td></tr>
+                <tr ng-repeat="score in oldGame.scores">
+                    <td ng-class="{winner:score.scoringTeam===0}">{{score.team0Score}}</td>
+                    <td>{{score.timestamp | date:'mm:ss'}}</td>
+                    <td ng-class="{winner:score.scoringTeam===1}">{{score.team1Score}}</td>
+                </tr>
+            </table>
+        </li>
+        <li ng-if="vm.matchupData.games.length === 0">
+            No games played between these players!
+        </li>
     </ul>
 </div>

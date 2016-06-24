@@ -3,9 +3,9 @@
 
     angular.module('app').controller('HeadToHeadController', HeadToHeadController);
 
-    HeadToHeadController.$inject = ['MatchupService', 'PlayerService'];
+    HeadToHeadController.$inject = ['MatchupService', 'PlayerService', 'GameService'];
 
-    function HeadToHeadController(MatchupService, PlayerService) {
+    function HeadToHeadController(MatchupService, PlayerService, GameService) {
         var vm = this;
 
         vm.player0;
@@ -14,6 +14,7 @@
         vm.players = [];
 
         vm.onPlayerChange = onPlayerChange;
+        vm.toggleGame = toggleGame;
 
         init();
 
@@ -35,6 +36,18 @@
             } else {
                 vm.matchupData = {};
             }
+        }
+
+        function toggleGame(game) {
+            if (!game.toggled && !game.scores) {
+                GameService.getScoresForGame(game.id, game.startTime).then(
+                    function (scores) {
+                        game.scores = scores;
+                    }
+                )
+            }
+
+            game.toggled = !game.toggled;
         }
     }
 
