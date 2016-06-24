@@ -3,12 +3,11 @@
 
     angular.module('app').factory('PlayerService', PlayerService);
 
-    PlayerService.$inject = ['$http'];
+    PlayerService.$inject = ['$http', 'API_KEY'];
 
-    function PlayerService($http) {
+    function PlayerService($http, API_KEY) {
 
         var URL_GET_PLAYERS = 'https://ps-foosball.mybluemix.net/api/Teams?filter[where][type]=singles&filter[where][rank][gte]=1&filter[include]=player0&filter[order]=rank%20ASC';
-        var API_KEY = 't0ddsucks';
 
         return {
             getAllPlayers: getAllPlayers

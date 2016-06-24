@@ -3,12 +3,11 @@
 
     angular.module('app').factory('MatchupService', MatchupService);
 
-    MatchupService.$inject = ['$http'];
+    MatchupService.$inject = ['$http', 'API_KEY'];
 
-    function MatchupService($http) {
+    function MatchupService($http, API_KEY) {
 
         var URL_GET_GAMES = 'https://ps-foosball.mybluemix.net/api/Games?filter=';
-        var API_KEY = 't0ddsucks';
 
         return {
             getMatchupRecord: getMatchupRecord

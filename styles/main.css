@@ -5,3 +5,7 @@ html {
 .winner {
     font-weight: bold;
 }
+
+.api-warning {
+    padding: 15px;
+}
