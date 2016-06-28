@@ -1,0 +1,15 @@
+{
+  "name": "psfoosball-electron",
+  "main": "./main.electron.js",
+  "private": true,
+  "scripts": {
+    "electron": "electron .",
+    "package": "electron-packager ./ PSFoosballElectron --platform=darwin --arch=x64 --out ~/Desktop/PSFoosballElectron --overwrite --version 1.2.5 --icon=./icon-128.icns"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.2.5"
+  },
+  "devDependencies": {
+    "electron-packager": "^7.1.0"
+  }
+}
